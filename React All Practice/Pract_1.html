@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React Practice 1</title>
+    <script
+      src="https://unpkg.com/react@18/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
+
+<script type="text/babel">
+ function Test(){
+    
+        console.log("Welcome...")
+   
+ }
+  class Hello extends React.Component {
+    render() {
+      return <p>Hello, I am a Nilesh Devaji Khainar </p>;
+    }
+  }
+  
+  ReactDOM.render(<Hello/>, document.getElementById("root"));
+</script>

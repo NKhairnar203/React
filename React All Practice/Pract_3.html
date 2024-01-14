@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Practice with React</title>
+    <script
+      src="https://unpkg.com/react@18/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
+<script type="text/babel">
+    let root = document.getElementById("root");
+    const reactEle = ReactDOM.createRoot(root);
+    function tick(){
+        const time = new Date().toLocaleTimeString();
+        const element = (
+            <>
+                <h1>Digital Clock - React</h1>
+                <h2>{time}</h2>
+            </>
+        )
+        reactEle.render(element)
+    }
+    setInterval(tick,1000)
+</script>
+
+
+
+
+
+
+
+
+<!-- <script>
+  let root = document.getElementById("root");
+
+  function tick() {
+    const time = new Date().toLocaleTimeString();
+    root.innerHTML = `
+        <h3>Digital Clock</h3>
+        <h3>${time}</h3>`;
+  }
+//   tick();
+  setInterval(tick, 1000);
+</script> -->

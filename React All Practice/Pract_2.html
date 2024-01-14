@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React Practice 1</title>
+    <script
+      src="https://unpkg.com/react@18/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+      .Super-div {
+        width: 500px;
+        height: 400px;
+        /* background-color: bisque; */
+        border: 1px solid black;
+        padding: 20px;
+        margin: 30px;
+      }
+      
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
+
+<script type="text/babel">
+  function SuperCard(props) {
+    console.log(props);
+    return (
+      <div className="Super-div">
+        <p>Name : {props.name}</p>
+        {props.hobies.length>0 ? (<p>Hobies : {props.hobies.join(", ")} </p>) : (
+            <h4>No Hobies</h4>
+        )}
+        <div>
+            Has Super Power :
+            <span style={{color : props.hasSuperpowers ? "green" : "red"}}>
+                {props.hasSuperpowers ? " Yes" : "No"}    
+            </span>
+
+        </div>
+        <div style={{color:"blue"}}> 
+          <p>Street :{props.address.street} </p>
+          <p>city : {props.address.city}</p>
+          <p>Country : {props.address.country}</p>
+        </div>
+        <p>Age: {props.age}</p>
+      </div>
+    );
+  }
+
+  function App() {
+    return (
+      <div>
+        <SuperCard
+          name="Batman"
+          hobies={["fighting crime"]}
+          hasSuperpowers={false}
+          address={{
+            street: "arkham Street",
+            city: "Nashik",
+            country: "India",
+          }}
+          age={24}
+        />
+        <SuperCard
+          name="Batman"
+          hobies={[]}
+          hasSuperpowers={true}
+          address={{
+            street: "arkham Street",
+            city: "Nashik",
+            country: "India",
+          }}
+          age={21}
+        />
+      </div>
+    );
+  }
+
+  let domEle = document.querySelector("#root");
+  let reactEle = ReactDOM.createRoot(domEle);
+  reactEle.render(<App/>);
+</script>
