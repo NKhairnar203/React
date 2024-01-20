@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>React Template</title>
+    <style>
+        .main-div{
+            width: 200px;
+            height: 200px;
+            text-align: center;
+            padding-top: 50px;
+            font-size: 20px;
+            margin: auto;
+            margin-top: 40px;
+            border: 2px solid green;
+        }
+        button{
+            padding: 5px 15px;
+            background-color: green;
+
+        }
+    </style>
+  </head>
+
+  <body>
+    <div id="root"></div>
+  </body>
+
+  <script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+
+  <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <script type="text/babel">
+    let root = document.getElementById("root");
+    let reactEle = ReactDOM.createRoot(root);
+    function JSXShowcase({ value }) {
+
+        
+        const [isLoggedIn, setIsLoggedIn] = React.useState(false);
+
+      return (
+        <div>
+          <p>{isLoggedIn ? "Logged in as: User" : "Please log in"}</p>
+          <button onClick={() => setIsLoggedIn(!isLoggedIn)}>
+            {isLoggedIn ? "Log out" : "Log in"}
+          </button>
+        </div>
+      );
+    }
+    let App = () => {
+      return (
+        <div className="main-div">
+            <h3>Welcome User</h3>
+          <JSXShowcase />
+        </div>
+      );
+    };
+
+    reactEle.render(<App />);
+  </script>
+</html>
