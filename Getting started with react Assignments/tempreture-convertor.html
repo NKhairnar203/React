@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Temperature Converter</title>
+    <style>
+      .main {
+        border: 1px solid rgb(47, 156, 0);
+        width: 40%;
+        margin: 20px auto;
+        text-align: center;
+        padding: 10px;
+        font-weight: 400;
+        color: white;
+        background-color: rgb(41, 43, 42);
+      }
+      input{
+        width: 300px;
+        padding: 10px;
+      }
+      label{
+        font-size: 20px;
+        font-weight: 600;
+      }
+      span{
+        color: rgb(0, 255, 42);
+      }
+
+      h3 {
+        color: rgb(0, 102, 255);
+      }
+      h1{
+        padding-bottom: 20px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@18.2.0/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </body>
+</html>
+
+<script type="text/babel">
+  let root = document.getElementById("root");
+  let rootElelment = ReactDOM.createRoot(root);
+
+  let App = () => {
+    let userCelcius = React.useState("");
+    const [celcius, setCelcius] = userCelcius;
+
+    let userFah = React.useState("");
+    const [fahrenheit, setFahrenheit] = userFah;
+
+    let CelsiusFunction = (event) => {
+      let celValue = event.target.value;
+      let fahValue = (celValue * 9) / 5 + 32;
+
+      setCelcius(celValue);
+      setFahrenheit(fahValue);
+    };
+
+    let FahrenheitFunction = (event) => {
+      let fahValue = event.target.value;
+      let celValue = ((fahValue - 32) * 5) / 9;
+
+      setFahrenheit(fahValue);
+      setCelcius(celValue);
+    };
+
+    return (
+      <>
+        <div class="main">
+            <h1>Temperature Converter</h1>
+          <label>Celsius :</label>
+          <input type="number" value={celcius} onChange={CelsiusFunction} />
+          <h3>
+            <span>{celcius}</span> Celsius is <span>{fahrenheit}</span> Fahrenheit
+          </h3>
+          <br />
+          <label>Fahrenheit :</label>
+          <input
+            type="number"
+            value={fahrenheit}
+            onChange={FahrenheitFunction}
+          />
+          <h3>
+            <span>{fahrenheit}</span> Fahrenheit is <span>{celcius}</span> Celsius
+          </h3>
+        </div>
+      </>
+    );
+  };
+
+  rootElelment.render(<App />);
+</script>
